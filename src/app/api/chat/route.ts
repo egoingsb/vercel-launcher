@@ -9,7 +9,7 @@ export async function POST(req: Request) {
 
     // Vercel AI Gateway Provider를 사용하여 OpenAI API Key 없이 작동하게 합니다.
     const result = streamText({
-        model: vercel.chatModel('gpt-4o'),
+        model: vercel('gpt-4o'),
         messages,
     });
 
