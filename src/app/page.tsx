@@ -74,7 +74,7 @@ export default function Page() {
             </div>
           ))}
         </div>
-        <form onSubmit={handleSubmit} className="flex gap-2">
+        <form onSubmit={(e) => { e.preventDefault(); handleSubmit(e); }} className="flex gap-2">
           <input
             className="border p-2 flex-grow rounded"
             value={input}

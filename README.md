@@ -1,32 +1,44 @@
-# Next.js Vercel All-in-One Template (One-Click Deploy)
+# Next.js Vercel All-in-One Template
 
-이 템플릿은 Vercel AI Gateway, Supabase Integration, Vercel Blob을 클릭 한 번으로 설정하고 배포할 수 있도록 구성되어 있습니다.
+Vercel AI Gateway + Supabase + Blob Storage를 간편하게 배포할 수 있는 템플릿입니다.
 
-## 🚀 One-Click Deploy 방법
-
-아래 버튼을 클릭하여 본인의 GitHub 저장소로 복사하고 바로 배포할 수 있습니다.
+## 🚀 배포 방법
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fegoingsb%2Fvercel-launcher&project-name=vercel-launcher)
 
-> [!IMPORTANT]
-> 배포 화면에서 다음 설정을 진행하면 **OpenAI API Key 없이도** 서비스 구동이 가능합니다:
-> 1. **AI Gateway**: Vercel Dashboard의 'AI' 탭에서 AI Gateway를 활성화하고 크레딧을 충전하세요.
-> 2. **Supabase Integration**: Vercel 배포 설정 중 'Add Integration' 메뉴에서 Supabase를 선택하세요.
-> 3. **Vercel Blob (Storage)**: 'Storage' 섹션에서 Vercel Blob을 추가하세요.
+### 배포 후 설정 (3단계)
 
-### 필수 환경 변수 (통합 기능을 사용하지 않을 경우에만 필요)
-만약 Vercel AI Gateway Credits 대신 직접 API를 연동한다면 다음 변수가 필요합니다:
-- `OPENAI_API_KEY`: OpenAI 직접 결제 시
-- `NEXT_PUBLIC_SUPABASE_URL` / `NEXT_PUBLIC_SUPABASE_ANON_KEY`: Supabase 연동 시
-- `BLOB_READ_WRITE_TOKEN`: Vercel Blob 사용 시 (스토리지 추가 시 자동 생성)
+**1단계: Supabase 연결**
+- Vercel Dashboard → Settings → Integrations → Browse Marketplace
+- "Supabase" 검색 → Install → 계정 연결
+- 환경변수 자동 주입: `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY`
 
-## Features
+**2단계: Blob Storage 추가**
+- Vercel Dashboard → Storage → Create Database → Blob
+- 환경변수 자동 주입: `BLOB_READ_WRITE_TOKEN`
 
-- **AI Chat**: Simple chat interface using Vercel AI SDK.
-- **Database**: Connection check with Supabase.
-- **File Upload**: Image upload using Vercel Blob.
+**3단계: AI Gateway 활성화**
+- Vercel Dashboard → AI 탭 → AI Gateway 활성화
+- 크레딧 충전 (월 $5 무료 제공)
 
-## Local Development
+> ⚠️ 설정 완료 후 **Deployments → Redeploy** 클릭하여 재배포하세요.
 
-1. Copy `.env.example` to `.env.local` and fill in the values.
-2. Run `npm run dev`.
+## 기능
+
+| 기능 | 설명 |
+|------|------|
+| 💬 AI Chat | Vercel AI SDK를 이용한 채팅 |
+| 🗄️ Database | Supabase 연결 상태 확인 |
+| 📁 File Upload | Vercel Blob 이미지 업로드 |
+
+## 로컬 개발
+
+```bash
+npm install
+cp .env.example .env.local  # 환경변수 설정
+npm run dev
+```
+
+## 문서
+
+- [Vercel Template 개발자 가이드](./docs/VERCEL_TEMPLATE_GUIDE.md)
